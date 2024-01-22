@@ -1,0 +1,16 @@
+@mixin card-base() {
+  position: relative;
+  background-color: var(--natural-0);
+  box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.13), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.10);
+  border-radius: var(--radius-md);
+}
+
+.card {
+  @include card-base();
+  padding: var(--space-md) !important;
+
+  &.elevation-flat {
+    box-shadow: none;
+    border: 1px solid var(--border-default);
+  }
+}

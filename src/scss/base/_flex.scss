@@ -1,0 +1,57 @@
+$flexDirectionOptions: row, row-reverse, column, column-reverse;
+$flexWrapOptions: wrap, wrap-reverse, nowrap;
+$flexGap: none, 3xs, 2xs, xs, sm, md, lg, xl, 2xl, 3xl;
+$justifyContentOptions: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        between: space-between,
+        around: space-around,
+        evenly: space-evenly,
+        stretch: stretch,
+);
+$alignItemsOptions: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        baseline: baseline,
+        stretch: stretch,
+);
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1 1 auto;
+}
+
+@each $option in $flexDirectionOptions {
+  .flex-#{$option} {
+    flex-direction: $option;
+  }
+}
+
+@each $option in $flexWrapOptions {
+  .flex-#{$option} {
+    flex-wrap: $option;
+  }
+}
+
+@each $name, $value in $justifyContentOptions {
+  .justify-content-#{$name} {
+    justify-content: $value;
+  }
+}
+
+@each $name, $value in $alignItemsOptions {
+  .align-items-#{$name} {
+    align-items: $value;
+  }
+}
+
+@each $gap in $flexGap {
+  .gap-#{$gap} {
+    gap: var(--space-#{$gap});
+  }
+}

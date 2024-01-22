@@ -1,0 +1,7 @@
+$borderColorOptions: default, dark, primary, accent, info, success, warning,danger;
+
+@each $color in $borderColorOptions {
+  .border-#{$color} {
+    border-color: var(--border-#{$color});
+  }
+}

@@ -1,0 +1,46 @@
+$textAlignOptions: left, center, right, justify, start, end;
+h1,h2,h3,h4,h5{
+  font-family: var(--base-font-family-name);
+  font-style: var(--heading-font-family-style);
+  font-weight: var(--heading-font-weight);
+}
+
+h1 {
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+}
+
+h2 {
+  font-size: var(--heading-2-font-size);
+  line-height: var(--heading-2-line-height);
+}
+
+h3 {
+  font-size: var(--heading-3-font-size);
+  line-height: var(--heading-3-line-height);
+}
+
+h4 {
+  font-size: var(--heading-4-font-size);
+  line-height: var(--heading-4-line-height);
+}
+
+h5 {
+  font-size: var(--heading-5-font-size);
+  line-height: var(--heading-5-line-height);
+}
+
+h6 {
+  font-size: var(--heading-6-font-size);
+  line-height: var(--heading-6-line-height);
+}
+
+p{
+  font-family: var(--base-font-family-name);
+}
+/* text align */
+@each $align in $textAlignOptions {
+  .text-#{$align} {
+    text-align: #{$align};
+  }
+}

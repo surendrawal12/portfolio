@@ -1,0 +1,39 @@
+@use "../abstract/sass-var" as vars;
+/* button colors */
+:root {
+  @each $color in vars.$colorOptions {
+    // filled
+    --button-bg-filled-#{$color}: var(--#{$color}-default);
+    --button-bg-filled-#{$color}-hover: var(--#{$color}-dark);
+    --button-bg-filled-#{$color}-active: var(--#{$color}-dark);
+
+    //// outline
+    --button-bg-outline-#{$color}-hover: var(--#{$color}-light);
+    --button-bg-outline-#{$color}-active: var(--#{$color}-light);
+    --button-fg-outline-#{$color}: var(--#{$color}-default);
+    //
+    //// light
+    //--button-bg-light-#{$color}: rgba(var(--#{$color}-100) / 32%);
+    //--button-bg-light-#{$color}-hover: rgba(var(--#{$color}-100) / 64%);
+    //--button-bg-light-#{$color}-active: rgba(var(--#{$color}-100) / 88%);
+    //--button-fg-light-#{$color}: rgba(var(--#{$color}-700));
+    //
+    //// subtle
+    //--button-bg-subtle-#{$color}-hover: rgba(var(--#{$color}-100) / 40%);
+    //--button-bg-subtle-#{$color}-active: rgba(var(--#{$color}-100) / 80%);
+    //--button-fg-subtle-#{$color}: rgba(var(--#{$color}-700));
+    //
+    ///* bg-fg-options */
+    //
+    ///* filled */
+    //--bg-filled-#{$color}: rgba(var(--#{$color}-500));
+    //
+    ///* outline */
+    //--bg-outline-#{$color}: var(--transparent);
+    //--fg-outline-#{$color}: rgba(var(--#{$color}-500));
+    //
+    ///* light */
+    //--bg-light-#{$color}: rgba(var(--#{$color}-100) / 32%);
+    //--fg-light-#{$color}: rgba(var(--#{$color}-500));
+  }
+}

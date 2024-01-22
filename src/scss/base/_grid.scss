@@ -1,0 +1,144 @@
+@use "../abstract/sass-var";
+
+$breakpoints: sm, md, lg, xl, 2xl;
+
+@mixin responsive-column-width($width, $breakpoint: default) {
+  @if ($breakpoint == sm) {
+    @media (min-width: sass-var.$breakpoint-sm) {
+      grid-column: span $width;
+    }
+  } @else if ($breakpoint == md) {
+    @media (min-width: sass-var.$breakpoint-md) {
+      grid-column: span $width;
+    }
+  } @else if ($breakpoint == lg) {
+    @media (min-width: sass-var.$breakpoint-lg) {
+      grid-column: span $width;
+    }
+  } @else if ($breakpoint == xl) {
+    @media (min-width: sass-var.$breakpoint-xl) {
+      grid-column: span $width;
+    }
+  } @else if ($breakpoint == 2xl) {
+    @media (min-width: sass-var.$breakpoint-2xl) {
+      grid-column: span $width;
+    }
+  }
+}
+
+@mixin responsive-col-hidden($breakpoint: default) {
+  @if ($breakpoint == sm) {
+    @media (min-width: sass-var.$breakpoint-sm) {
+      display: none;
+    }
+  } @else if ($breakpoint == md) {
+    @media (min-width: sass-var.$breakpoint-md) {
+      display: none;
+    }
+  } @else if ($breakpoint == lg) {
+    @media (min-width: sass-var.$breakpoint-lg) {
+      display: none;
+    }
+  } @else if ($breakpoint == xl) {
+    @media (min-width: sass-var.$breakpoint-xl) {
+      display: none;
+    }
+  } @else if ($breakpoint == 2xl) {
+    @media (min-width: sass-var.$breakpoint-2xl) {
+      display: none;
+    }
+  }
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin: 0 calc(1rem * -1);
+  grid-row-gap: 1rem;
+
+  > [class^="col-"],
+  > * {
+    padding: 0 1rem;
+    grid-column: span 12;
+    display: block;
+  }
+
+  .col-none {
+    display: none;
+  }
+
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      grid-column: span $i;
+    }
+  }
+
+  @each $point in $breakpoints {
+    @for $i from 1 through 12 {
+      .col-#{$point}-#{$i} {
+        @include responsive-column-width($i, $point);
+      }
+    }
+  }
+
+  @each $point in $breakpoints {
+    .col-#{$point}-none {
+      @include responsive-col-hidden($point);
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  @each $breakpoint in $breakpoints {
+    @if ($breakpoint == sm) {
+      @media (min-width: sass-var.$breakpoint-sm) {
+        max-width: var(--container-width-sm);
+      }
+    } @else if ($breakpoint == md) {
+      @media (min-width: sass-var.$breakpoint-md) {
+        max-width: var(--container-width-md);
+      }
+    } @else if ($breakpoint == lg) {
+      @media (min-width: sass-var.$breakpoint-lg) {
+        max-width: var(--container-width-lg);
+      }
+    } @else if ($breakpoint == xl) {
+      @media (min-width: sass-var.$breakpoint-xl) {
+        max-width: var(--container-width-xl);
+      }
+    } @else if ($breakpoint == 2xl) {
+    @media (min-width: sass-var.$breakpoint-2xl) {
+      max-width: var(--container-width-2xl);
+    }
+  }
+  }
+
+  &.container-max-xl {
+    @each $breakpoint in $breakpoints {
+      @if ($breakpoint == sm) {
+        @media (min-width: sass-var.$breakpoint-sm) {
+          max-width: var(--container-width-sm);
+        }
+      } @else if ($breakpoint == md) {
+        @media (min-width: sass-var.$breakpoint-md) {
+          max-width: var(--container-width-md);
+        }
+      } @else if ($breakpoint == lg) {
+        @media (min-width: sass-var.$breakpoint-lg) {
+          max-width: var(--container-width-lg);
+        }
+      } @else if ($breakpoint == xl) {
+        @media (min-width: sass-var.$breakpoint-xl) {
+          max-width: var(--container-width-xl);
+        }
+      } @else if ($breakpoint == 2xl) {
+      @media (min-width: sass-var.$breakpoint-2xl) {
+        max-width: var(--container-width-xl);
+      }
+    }
+    }
+  }
+}
